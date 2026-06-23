@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0e1621;
+    font-family: Segoe UI, Roboto, Helvetica Neue, sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.chatsbar {
+    background-color: #17212b;
+    border-radius: 30px;
+    padding: 5px;
+    width: 300px;   
+    margin: 15px;
+}
+.chatsbar__header-nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 5px;
+}
+.search__bar {
+    display: flex;
+    align-items: center;
+    background-color: #24303f;
+    flex: 1;
+    border-radius: 12px;
+    padding: 0 12px;
+    height: 38px;
+    transition: all 0.2s ease-in-out;
+}
+#search-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: inherit;
+}
+.opitons-button {
+    margin: 0 5px;
+}
+.search__icon {
+    margin-right: 8px;
+    flex-shrink: 0;
+    transition: fill 0.2s ease;
+}
+
+.chats__folders {
+    background-color: #20374e;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: 2px 2px 20px 3px #182735;
+    border-radius: 15px;
+    padding: 18px 15px;
+}
+.chats__folder {
+    text-decoration: none;
+    background-color: #2a537b;
+    border-radius: 20px;
+    padding: 8px;
+    color: lightblue;
+    transition: 0.3s ease-in-out;
+}
+.chats__folder-active {
+    background-color: #546c84;
+}
+.chats__folder:hover {
+    background-color: #3068a1;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+}
+button:hover {
+    background-color: #7f91a4;
+}
+
+.chats {
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    gap: 5px;
+}
+/* 1. Сбрасываем отступы у figure и убираем вылеты */
+.chat-unit figure {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* 2. Ограничиваем картинку по высоте, чтобы она не растягивала блок */
+.chat-unit .profile-pic {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 12px; /* Отступ между аватаркой и текстом */
+}
+
+/* 3. Центрируем элементы внутри chat-unit и даем внутренние отступы */
+.chat-unit {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Выравнивание по вертикали */
+    width: 100%;
+    height: 56px; /* Чуть увеличим для баланса */
+    border-radius: 15px; /* Слишком круглые 25px обрезали бы углы некрасиво */
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+/* 4. Сбрасываем гигантские отступы заголовков внутри списка */
+.chat-unit__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.chat-unit-active {
+    background-color: #3068a1;
+}
+.chat-unit__container .username {
+    font-size: 14px;
+    margin: 0;
+    color: #fff;
+    font-weight: 500;
+}
+
+.chat-unit__container .last-message {
+    font-size: 13px;
+    margin: 0;
+    color: #7f91a4;
+    font-weight: 400;
+}
+.chat-unit:hover {
+    background-color: #546c84;
+}
+.chat-unit__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 20px;
+    width: 90%;
+    margin-top: 15px;
+    padding: 0 0;
+}
+
+.chat__header {
+    display: flex;
+    flex-direction: row;
+    background-color: #2a537b;
+    border-radius: 30px;
+    align-items: center;
+    width: 90%;
+    height: 60px;
+    justify-content: space-between;
+    margin-top: 15px;
+    align-self: flex-start;
+    border: 1px solid white;
+    padding: 0 20px;
+}
+.chat__header .profile-pic {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.chat__header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: flex-start;
+}
+.chat-nav {
+    display: flex;
+    flex-direction: row;
+}
+
+.chat__header-container .username {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
+    color: white;
+}
+.chat__header-container .recentliness {
+    font-weight: 300;
+    font-size: 14px;
+    margin: 0;
+    color: white;
+}
+
+
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%; /* Заменили inherit на 100% для стабильности */
+    padding: 15px; /* Внутренние отступы, чтобы сообщения не липли к стенам */
+}
+.chat_message {
+    color: white;
+    padding: 8px 12px;
+    margin: 0;
+    /* КРИТИЧЕСКИЕ ИЗМЕНЕНИЯ ТУТ: */
+    width: fit-content;  /* Сжимает блок под размер текста */
+    max-width: 70%;      /* Не дает сообщению растянуться шире 70% экрана */
+}
+.chat_message-from_me {
+    background-color: #2b5278; /* Классический цвет ТГ для своих */
+    align-self: flex-end;      /* Магия выравнивания вправо */
+    border-radius: 15px 15px 4px 15px; /* Хвостик сообщения справа */
+}
+.chat_message-from-user {
+    background-color: #182533; /* Цвет ТГ для чужих */
+    align-self: flex-start;    /* Магия выравнивания влево */
+    border-radius: 15px 15px 15px 4px; /* Хвостик сообщения слева */
+}
