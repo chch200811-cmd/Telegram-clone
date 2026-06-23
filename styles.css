@@ -5,6 +5,8 @@
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Страница целиком не скроллится! */
     background-color: #0e1621;
     font-family: Segoe UI, Roboto, Helvetica Neue, sans-serif;
 }
@@ -12,6 +14,7 @@ body {
 .content {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 .chatsbar {
@@ -19,11 +22,11 @@ body {
     border-radius: 30px;
     padding: 5px;
     width: 300px;   
-    margin: 15px;
+    margin: 0;
 }
 .chatsbar__header-nav {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
     padding: 5px;
 }
@@ -46,8 +49,9 @@ body {
     font-size: 14px;
     font-family: inherit;
 }
-.opitons-button {
+.options-button {
     margin: 0 5px;
+    margin-right: auto;
 }
 .search__icon {
     margin-right: 8px;
@@ -166,7 +170,6 @@ button:hover {
     width: 90%;
     margin-top: 15px;
     padding: 0 0;
-    border: 1px solid rgba(255, 255, 255, 0.5);
     height: 90vh;
 }
 
@@ -222,6 +225,8 @@ button:hover {
     gap: 10px;
     width: 100%; /* Заменили inherit на 100% для стабильности */
     padding: 15px; /* Внутренние отступы, чтобы сообщения не липли к стенам */
+    flex-grow: 1;
+    overflow-y: auto;
 }
 .chat_message {
     color: white;
